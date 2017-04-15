@@ -1,0 +1,8 @@
+one:
+  user: one
+  token: 123
+  expires: <%= Time.now + 2.hours %>
+two:
+  user: two
+  token: 456
+  expires: <%= Time.now + 2.hours %>

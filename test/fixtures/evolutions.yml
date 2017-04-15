@@ -1,0 +1,15 @@
+one:
+  training: one
+  weight: 52
+  series: 3
+  date: 2017-04-13 00:00:00
+two:
+  training: one
+  weight: 56
+  series: 4
+  date: 2017-04-14 00:00:00
+three:
+  training: one
+  weight: 54
+  series: 3
+  date: 2017-04-15 00:00:00

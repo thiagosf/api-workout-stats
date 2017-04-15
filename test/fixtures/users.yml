@@ -1,0 +1,10 @@
+one:
+  name: Fulano
+  email: fulano@gmail.com
+  gender: 1
+  encrypted_password: '$2a$04$aEvbi9jZuiJ5XFvbwPwC5.T1A2lBp50ByREQIPc68VCpSODHa.R9G'
+two:
+  name: Beltrano
+  email: beltrano@gmail.com
+  gender: 0
+  encrypted_password: '$2a$04$aEvbi9jZuiJ5XFvbwPwC5.T1A2lBp50ByREQIPc68VCpSODHa.R9G'
