@@ -4,6 +4,18 @@ class TrainingsController < ApplicationController
     render json: { success: true, data: data }
   end
 
+  def show
+    data = Training.by_user(current_user)
+      .where(id: params[:id])
+      .includes(:evolutions)
+      .first
+    unless data.nil?
+      render json: { success: true, data: data.as_json(methods: :limited_evolutions) }
+    else
+      render json: { success: false, data: nil }
+    end
+  end
+
   def bulk_create
     ids = []
     data = training_bulk_params

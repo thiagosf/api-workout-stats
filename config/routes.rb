@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   post 'token' => 'user_tokens#auth', as: 'user_token_auth'
   post 'trainings/bulk_create' => 'trainings#bulk_create'
-  resources :trainings, only: [:index]
+  resources :trainings, only: [:index, :show]
   post 'evolutions/save_or_update' => 'evolutions#save_or_update'
 end
