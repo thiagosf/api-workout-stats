@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           @data = resource
           output = {
             success: true,
-            message: I18n.t('users.registrations.create.success'),
+            message: I18n.t("users.registrations.#{params[:action]}.success"),
             data: @data.output_api
           }
           return render json: output
@@ -58,7 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_resource(resource, update_params)
-    if params[:change_password].blank?
+    if update_params[:password].blank?
       update_params.delete(:password)
       update_params.delete(:password_confirmation)
     end
