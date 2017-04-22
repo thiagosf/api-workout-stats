@@ -21,6 +21,18 @@ class TrainingsController < ApplicationController
     data = training_bulk_params
     unless data[:trainings].blank?
       data[:trainings].each do |item|
+        unless item[:current_name].blank?
+          Training.where(
+            user_id: current_user.id,
+            name: item[:current_name]
+          ).update_all(name: item[:name])
+        end
+        unless item[:current_category].blank?
+          Training.where(
+            user_id: current_user.id,
+            category: item[:current_category]
+          ).update_all(category: item[:category])
+        end
         training = Training.find_or_create_by(
           user: current_user,
           name: item[:name],
@@ -39,6 +51,11 @@ class TrainingsController < ApplicationController
   private
 
   def training_bulk_params
-    params.permit(trainings: [:category, :name])
+    params.permit(trainings: [
+      :current_category,
+      :category,
+      :current_name,
+      :name
+    ])
   end
 end
