@@ -8,7 +8,7 @@ class Training < ApplicationRecord
 
   def self.get_trainings_by_user(user)
     output = []
-    data = self.where(user: user).order(category: :asc, name: :asc)
+    data = self.where(user: user).order(sort: :asc, category: :asc, name: :asc)
     data.each do |item|
       stats = []
       weight = 0

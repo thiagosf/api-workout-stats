@@ -20,7 +20,7 @@ class TrainingsController < ApplicationController
     ids = []
     data = training_bulk_params
     unless data[:trainings].blank?
-      data[:trainings].each do |item|
+      data[:trainings].each_with_index do |item, index|
         unless item[:current_name].blank?
           Training.where(
             user_id: current_user.id,
@@ -38,6 +38,7 @@ class TrainingsController < ApplicationController
           name: item[:name],
           category: item[:category]
         )
+        training.update_column :sort, index + 1
         ids << training.id
       end
       Training.where(user_id: current_user.id)
