@@ -12,7 +12,7 @@ threads threads_count, threads_count
 rails_env = ENV['RAILS_ENV'] || "production"
 if rails_env === 'production'
   pidfile "tmp/puma.pid"
-  bind "unix://var/www/workout-stats/api-workout-stats/tmp/puma.sock"
+  bind "unix:/var/www/workout-stats/api-workout-stats/tmp/puma.sock"
 else
   port ENV.fetch("PORT") { 3000 }
 end
